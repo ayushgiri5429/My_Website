@@ -1,12 +1,4 @@
-/**
- * Ayush Giri - EXTREME Portfolio JavaScript
- * NEXT LEVEL EFFECTS: 3D WebGL Background, Magnetic Mouse, Ripples, Explosions, GLSL Shaders
- * WARNING: Contains advanced visual effects - May cause intense visual stimulation
- */
 
-// ==============================================
-// 1. THREE.JS 3D BACKGROUND WITH SHADER EFFECTS
-// ==============================================
 // Load Three.js from CDN
 const threeScript = document.createElement('script');
 threeScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
