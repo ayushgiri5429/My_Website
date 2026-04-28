@@ -1,257 +1,217 @@
 <!DOCTYPE html>
-<!-- Created By Ayush Giri -->
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Ayush Giri</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9192478373738113"
-     crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Ayush Giri - IT Engineering Graduate & Full Stack Web Developer specializing in Python and Django. View my projects and connect.">
+  <meta name="author" content="Ayush Giri">
+  <title>Ayush Giri | Full Stack Web Developer</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Favicon (optional) -->
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/python--v1.png">
 </head>
-
 <body>
-    <div class="scroll-up-btn">
-        <i class="fas fa-angle-up"></i>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">Ayush.dev</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display: flex; gap: 1rem;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode"><i class="fas fa-moon"></i></button>
+      <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
     </div>
-    <nav class="navbar">
-        <div class="max-width">
-            <div class="logo">
-                <a href="#"><span> Ayush Giri</span></a></div>
-            <ul class="menu">
-                <li><a href="#home" class="menu-btn">Home</a></li>
-                <li><a href="#about" class="menu-btn">About</a></li>
-                <li><a href="#services" class="menu-btn">Services</a></li>
-                <li><a href="#skills" class="menu-btn">Skills</a></li>
-                <!-- <li><a href="#teams" class="menu-btn">Teams</a></li> -->
-                <li><a href="#contact" class="menu-btn">Contact</a></li>
-            </ul>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-    <!-- home section start -->
-    <section class="home" id="home">
-        <div class="max-width">
-            <div class="home-content">
-                <div class="text-1">
-                    Hello, my name is</div>
-                <div class="text-2">
-                    Ayush Giri</div>
-                <div class="text-3">
-                    And I'm a <span class="typing"></span></div>
-                <a href="#contact">Hire me</a>
-            </div>
-        </div>
-    </section>
-    <!-- about section start -->
-    <section class="about" id="about">
-        <div class="max-width">
-            <h2 class="title">
-                About me</h2>
-            <div class="about-content">
-                <div class="column left">
-                    <img src="./images/ayush.jpg" alt="Ayush Giri">
-                </div>
-                <div class="column right">
-                    <div class="text">
-                        I'm Ayush and I'm a <span class="typing-2"></span></div>
-                    <p>
-                        I am a second year student pursuing IT Engineering @cosmos college of management and technology. I am always ready to have new experiences, meet new people and learn new things[...]
-                    </p>
-                    <a href="./CV/myresume-ayush.pdf" target="_blank">Download CV</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- services section start -->
-    <section class="services" id="services">
-        <div class="max-width">
-            <h2 class="title">
-                My services</h2>
-            <div class="serv-content">
-                <div class="card">
-                    <div class="box">
-                        <i class="fas fa-paint-brush"></i>
-                        <div class="text">
-                            Web Design</div>
-                        <p>
-                            I am not a good designer. I have a very minimal design experience. I design most of the sites by referencing google or following any youtube tutorial.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <i class="fas fa-chart-line"></i>
-                        <div class="text">
-                            Web Development</div>
-                        <p>
-                            The best service that I can offer as a developer is developing web sites and providing you with a good modular website or web apps.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <i class="fas fa-code"></i>
-                        <div class="text">
-                            Co-operation</div>
-                        <p>
-                            I provide a co-operative environment for the client such that the requirements can be well said and documented.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- skills section start -->
-    <section class="skills" id="skills">
-        <div class="max-width">
-            <h2 class="title">
-                My skills</h2>
-            <div class="skills-content">
-                <div class="column left">
-                    <div class="text">
-                        My creative skills & experiences.</div>
-                    <p>
-                        I have listed some of the major skills I posses in different web technologies.
-                    </p>
-                    <!-- <a href="#">Read more</a> -->
-                </div>
-                <div class="column right">
-                    <div class="bars">
-                        <div class="info">
-                            <span>HTML</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="line html">
-                        </div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>CSS (Sass)</span>
-                            <span>40%</span>
-                        </div>
-                        <div class="line css">
-                        </div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>JavaScript (Vanilla , Vue)</span>
-                            <span>50%</span>
-                        </div>
-                        <div class="line js">
-                        </div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>PHP (Laravel, CI)</span>
-                            <span>45%</span>
-                        </div>
-                        <div class="line php">
-                        </div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>Python (Django)</span>
-                            <span>50%</span>
-                        </div>
-                        <div class="line python">
-                        </div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>SQL(MySQL)</span>
-                            <span>40%</span>
-                        </div>
-                        <div class="line mysql">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  </div>
+</nav>
 
-    <!-- contact section start -->
-    <section class="contact" id="contact">
-        <div class="max-width">
-            <h2 class="title">
-                Contact me</h2>
-            <div class="contact-content">
-                <div class="column left">
-                    <div class="text">
-                        Get in Touch</div>
-                    <p>
-                        Feel free to contact me.
-                    </p>
-                    <div class="icons">
-                        <div class="row">
-                            <i class="fas fa-user"></i>
-                            <div class="info">
-                                <div class="head">
-                                    Name</div>
-                                <div class="sub-title">
-                                    Ayush Giri</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="info">
-                                <div class="head">
-                                    Address</div>
-                                <div class="sub-title">
-                                    Mahendranagar, Nepal</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <i class="fas fa-envelope"></i>
-                            <div class="info">
-                                <div class="head">
-                                    Email</div>
-                                <div class="sub-title">
-                                    ayushgiri5429@gmail.com</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column right">
-                    <div class="text">
-                        Message me</div>
-                    <form action="https://formsubmit.co/el/savuli" method="POST">
-                        <div class="fields">
-                            <div class="field name">
-                                <input type="text" name="name" placeholder="Name" required>
-                            </div>
-                            <div class="field email">
-                                <input type="email" name="email" placeholder="Email" required>
-                            </div>
-                        </div>
-                         <div class="field number">
-                            <input type="tel" name="number" placeholder="Contact number" required>
-                         </div>
-                        <div class="field">
-                            <input type="text" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="field textarea">
-                            <textarea cols="30" name="message" rows="10" placeholder="Message.." required></textarea>
-                        </div>
-                        <div class="button">
-                            <button type="submit">Send message</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<main>
+  <!-- Hero Section with Profile Image -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-wrapper">
+        <div class="hero-content">
+          <h1>Ayush Giri</h1>
+          <div class="typing-wrapper">
+            <span id="typed-text"></span><span class="cursor">|</span>
+          </div>
+          <p class="tagline">Building scalable, modern web applications with clean code and user-centric design. Passionate about leveraging Python & Django to solve real-world problems.</p>
+          <div class="btn-group">
+            <a href="#projects" class="btn btn-primary"><i class="fas fa-code-branch"></i> View Projects</a>
+            <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contact Me</a>
+          </div>
         </div>
-    </section>
-    <!-- footer section start -->
-    <footer>
-        <span>Created By <a href="#">Ayush Giri</a> | <span class="far fa-copyright"></span> 2022 All rights reserved.</span>
-    </footer>
-    <script src="./script.js"></script>
+        <div class="hero-image">
+          <div class="profile-img-wrapper">
+            <img src="https://avatars.githubusercontent.com/ayushgiri5429?s=400" alt="Ayush Giri Profile" id="profileImg" onerror="this.src='https://ui-avatars.com/api/?name=Ayush+Giri&background=3b82f6&color=fff&size=200&rounded=true&bold=true'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-card">
+        <p style="font-size: 1.1rem; margin-bottom: 1rem;">👋 I'm Ayush Giri, an IT Engineering graduate with a relentless drive to master full-stack development. I specialize in Python & Django, crafting robust backends and intuitive frontends. My approach blends technical precision with creative problem-solving, ensuring every project is scalable and future-proof. I'm eager to contribute to innovative teams, constantly learning, and turning ideas into powerful web experiences.</p>
+        <p style="color: var(--text-soft);">🎯 Career Goal: To become a lead full-stack architect, building impactful applications that streamline business processes and engage users worldwide.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section (Categorized) -->
+  <section id="skills">
+    <div class="container">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <h3><i class="fas fa-code"></i> Frontend</h3>
+          <div class="skill-items">
+            <span class="skill-badge">HTML5</span>
+            <span class="skill-badge">CSS3</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">Responsive Design</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h3><i class="fas fa-server"></i> Backend</h3>
+          <div class="skill-items">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">Django</span>
+            <span class="skill-badge">REST APIs</span>
+            <span class="skill-badge">SQLite / PostgreSQL</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h3><i class="fas fa-tools"></i> Tools & Version Control</h3>
+          <div class="skill-items">
+            <span class="skill-badge">Git & GitHub</span>
+            <span class="skill-badge">VS Code</span>
+            <span class="skill-badge">Postman</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section (using your actual GitHub repos) -->
+  <section id="projects">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1 - Edu_log -->
+        <div class="project-card">
+          <h3>Edu_log</h3>
+          <p>Educational logging system built with Python - track learning progress and manage educational resources efficiently.</p>
+          <div class="project-tech"><span class="tech">Python</span><span class="tech">Django</span><span class="tech">SQLite</span></div>
+          <a href="https://github.com/ayushgiri5429/Edu_log" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+        </div>
+        <!-- Project 2 - Student Record System -->
+        <div class="project-card">
+          <h3>Student Record System</h3>
+          <p>Comprehensive student database management system with CRUD operations, search, and reporting features.</p>
+          <div class="project-tech"><span class="tech">Python</span><span class="tech">Django</span><span class="tech">Bootstrap</span></div>
+          <a href="https://github.com/ayushgiri5429/Student-Record-System" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+        </div>
+        <!-- Project 3 - Personal Blog -->
+        <div class="project-card">
+          <h3>Personal Blog</h3>
+          <p>Dynamic blog platform with user authentication, post creation, and comment system using Django framework.</p>
+          <div class="project-tech"><span class="tech">Python</span><span class="tech">Django</span><span class="tech">HTML/CSS</span></div>
+          <a href="https://github.com/ayushgiri5429/Personal_blog" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+        </div>
+        <!-- Project 4 - News Portal -->
+        <div class="project-card">
+          <h3>News Portal</h3>
+          <p>Real-time news aggregation web app fetching latest headlines from various sources with category filtering.</p>
+          <div class="project-tech"><span class="tech">Python</span><span class="tech">Django</span><span class="tech">API</span></div>
+          <a href="https://github.com/ayushgiri5429/News_Portal" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+        </div>
+        <!-- Project 5 - Python Tic Tac Toe -->
+        <div class="project-card">
+          <h3>Python Tic Tac Toe</h3>
+          <p>Classic Tic Tac Toe game with AI opponent and modern GUI interface built with Python and Tkinter.</p>
+          <div class="project-tech"><span class="tech">Python</span><span class="tech">Tkinter</span><span class="tech">OOP</span></div>
+          <a href="https://github.com/ayushgiri5429/python-tic-tac-toe" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+        </div>
+        <!-- Project 6 - Portfolio Website -->
+        <div class="project-card">
+          <h3>Portfolio 2025</h3>
+          <p>Modern responsive portfolio website with dark mode, smooth animations, and glassmorphism design.</p>
+          <div class="project-tech"><span class="tech">HTML5</span><span class="tech">CSS3</span><span class="tech">JavaScript</span></div>
+          <a href="https://github.com/ayushgiri5429/ayushgiri5429.github.io" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience / Education Section -->
+  <section id="experience">
+    <div class="container">
+      <h2>Education & Training</h2>
+      <div class="exp-edu">
+        <div class="exp-item">
+          <h3><i class="fas fa-graduation-cap"></i> Bachelor of Technology - IT Engineering</h3>
+          <p>Cosmos College of Managemnet & Technology, Kathmandu | 2021 – 2025</p>
+          <p style="color: var(--text-soft);">Relevant coursework: Data Structures, Web Development, DBMS, Cloud Computing.</p>
+        </div>
+        <div class="exp-item">
+          <h3><i class="fas fa-code"></i> Professional Django Training</h3>
+          <p>Python/Django Masterclass – Zero to Hero (Broadway Infosys)</p>
+          <p style="color: var(--text-soft);">Completed intensive 3-month training: built 5+ full-stack projects, version control, deployment.</p>
+        </div>
+        <div class="exp-item">
+          <h3><i class="fas fa-laptop-code"></i> Full Stack Developer Intern</h3>
+          <p>Grepbit Tech Consulting Pvt. Ltd | 2025 (3 months)</p>
+          <p style="color: var(--text-soft);">Collaborated on Django REST APIs, frontend integration, and database optimization. Achieved 20% performance improvement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact + References Combined Layout -->
+  <section id="contact">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <div class="contact-flex">
+        <div class="contact-info">
+          <h3><i class="fas fa-address-card"></i> Let's connect</h3>
+          <div class="contact-item"><i class="fas fa-envelope"></i> <span>pyayushgiri@gmail.com</span></div>
+          <div class="contact-item"><i class="fas fa-phone-alt"></i> <span>+977 9862475429</span></div>
+          <div class="contact-item"><i class="fab fa-github"></i> <span><a href="https://github.com/ayushgiri5429" target="_blank">github.com/ayushgiri5429</a></span></div>
+          <div class="contact-item"><i class="fab fa-linkedin"></i> <span><a href="https://www.linkedin.com/in/ayushgiri1/" target="_blank">linkedin.com/in/ayushgiri1/</a></span></div>
+        </div>
+        <div class="references">
+          <h3><i class="fas fa-user-check"></i> References</h3>
+          <div class="ref-card">
+            <p><strong>Mr. Ramesh Pradhan</strong><br>Senior Python/Django Instructor, Broadway Infosys</p>
+          </div>
+          <div class="ref-card">
+            <p><strong>Mr. Keshav Prasad Mainali</strong><br>CTO - Grepbit Tech Consulting Pvt. Ltd.</p>
+          </div>
+          <div class="ref-card">
+            <p><em>📄 Available upon request for professional references</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Ayush Giri. All rights reserved.</p>
+  </footer>
+</main>
+
+<script src="script.js"></script>
 </body>
-
 </html>
