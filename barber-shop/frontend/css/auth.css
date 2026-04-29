@@ -1,0 +1,37 @@
+/* ============================================
+   Auth-Specific Styles
+   ============================================ */
+#authModal .modal h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+#authModal .form-group input {
+  height: 44px;
+}
+
+#authModal .btn-primary {
+  height: 44px;
+  margin-top: 0.5rem;
+}
+
+.password-toggle {
+  position: relative;
+}
+
+.password-toggle input {
+  padding-right: 3rem;
+}
+
+.password-toggle .toggle-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-soft);
+  cursor: pointer;
+}

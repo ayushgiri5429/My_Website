@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BarberShop - Book your next haircut, earn loyalty points, and enjoy exclusive offers.">
+  <title>BarberShop | Book Your Style</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/booking.css">
+  <link rel="stylesheet" href="css/loyalty.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo"><i class="fas fa-cut"></i> BarberShop</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#booking">Book Now</a></li>
+        <li><a href="#loyalty">Loyalty</a></li>
+        <li><a href="#offers">Offers</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div id="authButtons">
+          <button class="btn btn-outline-light btn-sm" onclick="showAuthModal('login')">Login</button>
+          <button class="btn btn-primary btn-sm" onclick="showAuthModal('register')">Sign Up</button>
+        </div>
+        <div id="userMenu" class="user-menu hidden">
+          <span id="userName"></span>
+          <button class="btn btn-sm btn-outline-light" onclick="logout()">Logout</button>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Your Style, Our Craft</h1>
+      <p>Premium grooming experience with expert barbers. Book online, earn rewards, look sharp.</p>
+      <a href="#booking" class="btn btn-primary btn-lg">Book Appointment</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid" id="servicesGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Book an Appointment</h2>
+      <div id="bookingFormWrapper">
+        <p class="login-prompt" id="bookingLoginPrompt">Please <a href="#" onclick="showAuthModal('login')">log in</a> to book an appointment.</p>
+        <form id="bookingForm" class="booking-form hidden">
+          <div class="form-group">
+            <label for="bookingService">Service</label>
+            <select id="bookingService" required>
+              <option value="">Select a service</option>
+              <option value="haircut">Haircut - $25</option>
+              <option value="shave">Classic Shave - $20</option>
+              <option value="beard_trim">Beard Trim - $15</option>
+              <option value="hair_color">Hair Color - $45</option>
+              <option value="combo">Haircut + Shave Combo - $40</option>
+              <option value="premium">Premium Package - $65</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bookingDate">Date</label>
+              <input type="date" id="bookingDate" required>
+            </div>
+            <div class="form-group">
+              <label for="bookingTime">Time Slot</label>
+              <select id="bookingTime" required>
+                <option value="">Select time</option>
+                <option value="09:00">9:00 AM</option>
+                <option value="09:30">9:30 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="10:30">10:30 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="11:30">11:30 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="13:00">1:00 PM</option>
+                <option value="13:30">1:30 PM</option>
+                <option value="14:00">2:00 PM</option>
+                <option value="14:30">2:30 PM</option>
+                <option value="15:00">3:00 PM</option>
+                <option value="15:30">3:30 PM</option>
+                <option value="16:00">4:00 PM</option>
+                <option value="16:30">4:30 PM</option>
+                <option value="17:00">5:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bookingNotes">Notes (optional)</label>
+            <textarea id="bookingNotes" rows="3" maxlength="500" placeholder="Any special requests..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loyalty Section -->
+  <section id="loyalty" class="section">
+    <div class="container">
+      <h2 class="section-title">Loyalty Rewards</h2>
+      <div id="loyaltyContent">
+        <div class="loyalty-overview" id="loyaltyOverview">
+          <div class="loyalty-card">
+            <h3>Earn Points Every Visit</h3>
+            <p>Get rewarded for being a regular. Accumulate points and unlock exclusive perks.</p>
+            <div class="tier-badges">
+              <span class="badge badge-bronze">Bronze</span>
+              <span class="badge badge-silver">Silver</span>
+              <span class="badge badge-gold">Gold</span>
+              <span class="badge badge-platinum">Platinum</span>
+            </div>
+          </div>
+        </div>
+        <div id="loyaltyDashboard" class="hidden">
+          <!-- Populated when logged in -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers Section -->
+  <section id="offers" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Current Offers</h2>
+      <div class="offers-grid" id="offersGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Auth Modal -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+      <div id="loginForm">
+        <h2>Welcome Back</h2>
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required minlength="6">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <p class="form-switch">Don't have an account? <a href="#" onclick="switchAuthForm('register')">Sign Up</a></p>
+        </form>
+      </div>
+      <div id="registerForm" class="hidden">
+        <h2>Create Account</h2>
+        <form onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label for="regName">Full Name</label>
+            <input type="text" id="regName" required>
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Email</label>
+            <input type="email" id="regEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="regPhone">Phone</label>
+            <input type="tel" id="regPhone">
+          </div>
+          <div class="form-group">
+            <label for="regPassword">Password</label>
+            <input type="password" id="regPassword" required minlength="6">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+          <p class="form-switch">Already have an account? <a href="#" onclick="switchAuthForm('login')">Login</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 BarberShop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/loyalty.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

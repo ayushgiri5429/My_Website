@@ -1,0 +1,130 @@
+/* ============================================
+   Loyalty-Specific Styles
+   ============================================ */
+.loyalty-overview {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.loyalty-card {
+  text-align: center;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.loyalty-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.loyalty-card p {
+  color: var(--text-soft);
+  margin-bottom: 1.5rem;
+}
+
+.tier-badges {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge-bronze {
+  background: #cd7f32;
+  color: #fff;
+}
+
+.badge-silver {
+  background: #c0c0c0;
+  color: #333;
+}
+
+.badge-gold {
+  background: var(--gold);
+  color: #333;
+}
+
+.badge-platinum {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+}
+
+/* Dashboard (logged-in view) */
+.loyalty-dashboard {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.loyalty-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  text-align: center;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.stat-card .value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-card .label {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin-top: 0.25rem;
+}
+
+.points-history {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.points-history h4 {
+  margin-bottom: 1rem;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-item .earned {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.history-item .redeemed {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .loyalty-stats {
+    grid-template-columns: 1fr;
+  }
+}
