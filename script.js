@@ -97,12 +97,13 @@ function initThreeJS() {
     
     const texture = new THREE.CanvasTexture(canvas);
     
+    const isDark = document.body.classList.contains('dark');
     const particlesMaterial = new THREE.PointsMaterial({
         size: 0.3,
         vertexColors: true,
-        blending: THREE.AdditiveBlending,
+        blending: isDark ? THREE.AdditiveBlending : THREE.NormalBlending,
         transparent: true,
-        opacity: 0.7
+        opacity: isDark ? 0.7 : 0.35
     });
     
     particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
@@ -111,10 +112,10 @@ function initThreeJS() {
     // Add a rotating torus knot for extra 3D effect
     const knotGeometry = new THREE.TorusKnotGeometry(5, 1.2, 200, 32, 3, 4);
     const knotMaterial = new THREE.MeshBasicMaterial({
-        color: 0x3b82f6,
+        color: 0x2563eb,
         wireframe: true,
         transparent: true,
-        opacity: 0.15
+        opacity: document.body.classList.contains('dark') ? 0.15 : 0.08
     });
     const torusKnot = new THREE.Mesh(knotGeometry, knotMaterial);
     scene.add(torusKnot);
@@ -620,10 +621,24 @@ function toggleTheme() {
         document.body.classList.remove("dark");
         localStorage.setItem("theme", "light");
         if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        updateParticlesForTheme(false);
     } else {
         document.body.classList.add("dark");
         localStorage.setItem("theme", "dark");
         if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        updateParticlesForTheme(true);
+    }
+}
+
+function updateParticlesForTheme(isDark) {
+    if (particlesMesh && particlesMesh.material) {
+        particlesMesh.material.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
+        particlesMesh.material.opacity = isDark ? 0.7 : 0.35;
+        particlesMesh.material.needsUpdate = true;
+    }
+    if (window.torusKnot && window.torusKnot.material) {
+        window.torusKnot.material.opacity = isDark ? 0.15 : 0.08;
+        window.torusKnot.material.needsUpdate = true;
     }
 }
 
