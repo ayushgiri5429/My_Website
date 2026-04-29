@@ -1,217 +1,687 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Ayush Giri - IT Engineering Graduate & Full Stack Web Developer specializing in Python and Django. View my projects and connect.">
   <meta name="author" content="Ayush Giri">
   <title>Ayush Giri | Full Stack Web Developer</title>
-  <link rel="stylesheet" href="style.css?v=2">
-  <!-- Google Fonts & Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Favicon (optional) -->
+  <link rel="stylesheet" href="style.css?v=3">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/python--v1.png">
 </head>
 <body>
 
-<nav class="navbar">
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Particle Canvas Background -->
+<canvas id="particleCanvas"></canvas>
+
+<!-- Custom Cursor -->
+<div class="custom-cursor" id="cursor"></div>
+<div class="custom-cursor-dot" id="cursorDot"></div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
   <div class="nav-container">
-    <div class="logo">Ayush.dev</div>
+    <a href="#home" class="logo">
+      <span class="logo-bracket">&lt;</span>Ayush<span class="logo-dot">.</span>dev<span class="logo-bracket">/&gt;</span>
+    </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+      <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+      <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+      <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+      <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
     </ul>
-    <div style="display: flex; gap: 1rem;">
-      <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode"><i class="fas fa-moon"></i></button>
-      <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+      <a href="CV/myresume-ayush.pdf" class="btn btn-small btn-primary" target="_blank">
+        <i class="fas fa-download"></i> Resume
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </div>
 </nav>
 
+<!-- Mobile Menu Overlay -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
 <main>
-  <!-- Hero Section with Profile Image -->
+  <!-- ============ HERO SECTION ============ -->
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-wrapper">
-        <div class="hero-content">
-          <h1>Ayush Giri</h1>
+        <div class="hero-content reveal-left">
+          <p class="hero-greeting">
+            <span class="wave">👋</span> Hello, I'm
+          </p>
+          <h1 class="hero-title glitch" data-text="Ayush Giri">Ayush Giri</h1>
           <div class="typing-wrapper">
-            <span id="typed-text"></span><span class="cursor">|</span>
+            <span class="typing-prefix">I build </span>
+            <span id="typed-text" class="typed-highlight"></span>
+            <span class="cursor-blink">|</span>
           </div>
-          <p class="tagline">Building scalable, modern web applications with clean code and user-centric design. Passionate about leveraging Python & Django to solve real-world problems.</p>
-          <div class="btn-group">
-            <a href="#projects" class="btn btn-primary"><i class="fas fa-code-branch"></i> View Projects</a>
-            <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contact Me</a>
+          <p class="hero-description">
+            Building scalable, modern web applications with clean code and user-centric design.
+            Passionate about leveraging <strong>Python &amp; Django</strong> to solve real-world problems.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary btn-glow">
+              <i class="fas fa-rocket"></i> Explore Projects
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <i class="fas fa-paper-plane"></i> Get In Touch
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-target="10">0</span>+
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="5">0</span>+
+              <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="500">0</span>+
+              <span class="stat-label">Commits</span>
+            </div>
           </div>
         </div>
-        <div class="hero-image">
-          <div class="profile-img-wrapper">
-            <img src="https://avatars.githubusercontent.com/ayushgiri5429?s=400" alt="Ayush Giri Profile" id="profileImg" onerror="this.src='https://ui-avatars.com/api/?name=Ayush+Giri&background=3b82f6&color=fff&size=200&rounded=true&bold=true'">
+        <div class="hero-image reveal-right">
+          <div class="profile-ring">
+            <div class="profile-img-wrapper">
+              <img src="https://avatars.githubusercontent.com/ayushgiri5429?s=400" alt="Ayush Giri" id="profileImg"
+                   onerror="this.src='https://ui-avatars.com/api/?name=Ayush+Giri&background=6366f1&color=fff&size=300&rounded=true&bold=true'">
+            </div>
           </div>
+          <div class="floating-badge badge-1"><i class="fab fa-python"></i></div>
+          <div class="floating-badge badge-2"><i class="fab fa-js-square"></i></div>
+          <div class="floating-badge badge-3"><i class="fas fa-database"></i></div>
+          <div class="floating-badge badge-4"><i class="fab fa-django"></i></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Me -->
+  <!-- ============ ABOUT SECTION ============ -->
   <section id="about">
     <div class="container">
-      <h2>About Me</h2>
-      <div class="about-card">
-        <p style="font-size: 1.1rem; margin-bottom: 1rem;">👋 I'm Ayush Giri, an IT Engineering graduate with a relentless drive to master full-stack development. I specialize in Python & Django, crafting robust backends and intuitive frontends. My approach blends technical precision with creative problem-solving, ensuring every project is scalable and future-proof. I'm eager to contribute to innovative teams, constantly learning, and turning ideas into powerful web experiences.</p>
-        <p style="color: var(--text-soft);">🎯 Career Goal: To become a lead full-stack architect, building impactful applications that streamline business processes and engage users worldwide.</p>
+      <div class="section-header reveal-up">
+        <span class="section-tag">&lt;about&gt;</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <p class="about-intro">
+            I'm an <strong>IT Engineering graduate</strong> with a relentless drive to master full-stack development.
+            I specialize in <strong>Python &amp; Django</strong>, crafting robust backends and intuitive frontends.
+          </p>
+          <p>My approach blends technical precision with creative problem-solving, ensuring every project is scalable
+            and future-proof. I'm eager to contribute to innovative teams, constantly learning, and turning ideas
+            into powerful web experiences.</p>
+          <p class="about-goal">
+            <i class="fas fa-bullseye"></i>
+            <strong>Career Goal:</strong> To become a lead full-stack architect, building impactful applications
+            that streamline business processes and engage users worldwide.
+          </p>
+          <div class="about-labels">
+            <span class="label label-primary"><i class="fas fa-code"></i> Full Stack Developer</span>
+            <span class="label label-secondary"><i class="fab fa-python"></i> Python Enthusiast</span>
+            <span class="label label-accent"><i class="fas fa-graduation-cap"></i> IT Engineering Graduate</span>
+            <span class="label label-success"><i class="fas fa-laptop-code"></i> Open Source Contributor</span>
+          </div>
+        </div>
+        <div class="about-info reveal-right">
+          <div class="info-card">
+            <div class="info-item">
+              <i class="fas fa-user"></i>
+              <div><span class="info-label">Name</span><span class="info-value">Ayush Giri</span></div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div><span class="info-label">Location</span><span class="info-value">Nepal</span></div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <div><span class="info-label">Email</span><span class="info-value">ayushgiri5429@gmail.com</span></div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-briefcase"></i>
+              <div><span class="info-label">Status</span><span class="info-value available-badge">Available for Work</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section (Categorized) -->
+  <!-- ============ SKILLS SECTION ============ -->
   <section id="skills">
     <div class="container">
-      <h2>Technical Skills</h2>
+      <div class="section-header reveal-up">
+        <span class="section-tag">&lt;skills&gt;</span>
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="section-line"></div>
+      </div>
       <div class="skills-grid">
-        <div class="skill-cat">
-          <h3><i class="fas fa-code"></i> Frontend</h3>
-          <div class="skill-items">
-            <span class="skill-badge">HTML5</span>
-            <span class="skill-badge">CSS3</span>
-            <span class="skill-badge">JavaScript</span>
-            <span class="skill-badge">Responsive Design</span>
+        <!-- Frontend -->
+        <div class="skill-category reveal-up" style="--delay: 0.1s">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-palette"></i></div>
+            <h3>Frontend</h3>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>HTML5</span><span class="skill-percent">90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>CSS3 / SCSS</span><span class="skill-percent">85%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>JavaScript</span><span class="skill-percent">80%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Responsive Design</span><span class="skill-percent">90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+          </div>
+          <div class="skill-labels">
+            <span class="label label-small">HTML5</span>
+            <span class="label label-small">CSS3</span>
+            <span class="label label-small">JavaScript</span>
+            <span class="label label-small">Bootstrap</span>
           </div>
         </div>
-        <div class="skill-cat">
-          <h3><i class="fas fa-server"></i> Backend</h3>
-          <div class="skill-items">
-            <span class="skill-badge">Python</span>
-            <span class="skill-badge">Django</span>
-            <span class="skill-badge">REST APIs</span>
-            <span class="skill-badge">SQLite / PostgreSQL</span>
+        <!-- Backend -->
+        <div class="skill-category reveal-up" style="--delay: 0.2s">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-server"></i></div>
+            <h3>Backend</h3>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Python</span><span class="skill-percent">90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Django</span><span class="skill-percent">85%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>REST APIs</span><span class="skill-percent">80%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>PostgreSQL</span><span class="skill-percent">75%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+            </div>
+          </div>
+          <div class="skill-labels">
+            <span class="label label-small">Python</span>
+            <span class="label label-small">Django</span>
+            <span class="label label-small">REST API</span>
+            <span class="label label-small">SQL</span>
           </div>
         </div>
-        <div class="skill-cat">
-          <h3><i class="fas fa-tools"></i> Tools & Version Control</h3>
-          <div class="skill-items">
-            <span class="skill-badge">Git & GitHub</span>
-            <span class="skill-badge">VS Code</span>
-            <span class="skill-badge">Postman</span>
+        <!-- Tools -->
+        <div class="skill-category reveal-up" style="--delay: 0.3s">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-wrench"></i></div>
+            <h3>Tools &amp; DevOps</h3>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Git &amp; GitHub</span><span class="skill-percent">85%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>VS Code</span><span class="skill-percent">90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Postman</span><span class="skill-percent">80%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Linux / CLI</span><span class="skill-percent">75%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+            </div>
+          </div>
+          <div class="skill-labels">
+            <span class="label label-small">Git</span>
+            <span class="label label-small">VS Code</span>
+            <span class="label label-small">Postman</span>
+            <span class="label label-small">Linux</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section (using your actual GitHub repos) -->
+  <!-- ============ PROJECTS SECTION (Label Filtering) ============ -->
   <section id="projects">
     <div class="container">
-      <h2>Featured Projects</h2>
-      <div class="projects-grid">
-        <!-- Project 1 - Edu_log -->
-        <div class="project-card">
-          <h3>Edu_log</h3>
-          <p>Educational logging system built with Python - track learning progress and manage educational resources efficiently.</p>
-          <div class="project-tech"><span class="tech">Python</span><span class="tech">Django</span><span class="tech">SQLite</span></div>
-          <a href="https://github.com/ayushgiri5429/Edu_log" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+      <div class="section-header reveal-up">
+        <span class="section-tag">&lt;projects&gt;</span>
+        <h2 class="section-title">My Projects</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Filter by label to explore my work across different technologies</p>
+      </div>
+
+      <!-- Label Filter Bar -->
+      <div class="filter-bar reveal-up">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fas fa-th"></i> All
+        </button>
+        <button class="filter-btn" data-filter="python">
+          <i class="fab fa-python"></i> Python
+        </button>
+        <button class="filter-btn" data-filter="django">
+          <i class="fas fa-fire"></i> Django
+        </button>
+        <button class="filter-btn" data-filter="javascript">
+          <i class="fab fa-js-square"></i> JavaScript
+        </button>
+        <button class="filter-btn" data-filter="fullstack">
+          <i class="fas fa-layer-group"></i> Full Stack
+        </button>
+        <button class="filter-btn" data-filter="frontend">
+          <i class="fas fa-palette"></i> Frontend
+        </button>
+        <button class="filter-btn" data-filter="api">
+          <i class="fas fa-plug"></i> API
+        </button>
+      </div>
+
+      <!-- Active Filters Display -->
+      <div class="active-filters" id="activeFilters">
+        <span class="active-filter-label">Showing:</span>
+        <span class="active-filter-tag" id="activeFilterTag">All Projects</span>
+        <span class="project-count" id="projectCount">10 projects</span>
+      </div>
+
+      <!-- Project Grid -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Project 1 -->
+        <div class="project-card reveal-up" data-labels="python,django,fullstack,api">
+          <div class="project-card-header">
+            <div class="project-icon"><i class="fas fa-newspaper"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/ayushgiri5429/News_Portal" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">News Portal</h3>
+          <p class="project-desc">A full-featured news portal built with Django, featuring article management, categories, user authentication, and a responsive reading experience.</p>
+          <div class="project-labels">
+            <span class="label label-python">Python</span>
+            <span class="label label-django">Django</span>
+            <span class="label label-fullstack">Full Stack</span>
+            <span class="label label-api">API</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date"><i class="far fa-calendar"></i> 2025</span>
+          </div>
         </div>
-        <!-- Project 2 - Student Record System -->
-        <div class="project-card">
-          <h3>Student Record System</h3>
-          <p>Comprehensive student database management system with CRUD operations, search, and reporting features.</p>
-          <div class="project-tech"><span class="tech">Python</span><span class="tech">Django</span><span class="tech">Bootstrap</span></div>
-          <a href="https://github.com/ayushgiri5429/Student-Record-System" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal-up" data-labels="python,django,fullstack">
+          <div class="project-card-header">
+            <div class="project-icon"><i class="fas fa-blog"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/ayushgiri5429/Personal_blog" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Personal Blog</h3>
+          <p class="project-desc">A personal blog platform with Django, featuring rich text editing, comments, tags, and a clean reading interface with dark mode support.</p>
+          <div class="project-labels">
+            <span class="label label-python">Python</span>
+            <span class="label label-django">Django</span>
+            <span class="label label-fullstack">Full Stack</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date"><i class="far fa-calendar"></i> 2025</span>
+          </div>
         </div>
-        <!-- Project 3 - Personal Blog -->
-        <div class="project-card">
-          <h3>Personal Blog</h3>
-          <p>Dynamic blog platform with user authentication, post creation, and comment system using Django framework.</p>
-          <div class="project-tech"><span class="tech">Python</span><span class="tech">Django</span><span class="tech">HTML/CSS</span></div>
-          <a href="https://github.com/ayushgiri5429/Personal_blog" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal-up" data-labels="python,django,fullstack">
+          <div class="project-card-header">
+            <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/ayushgiri5429/Edu_log" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Edu Log</h3>
+          <p class="project-desc">An educational platform for managing courses, student records, and learning resources with a comprehensive admin dashboard.</p>
+          <div class="project-labels">
+            <span class="label label-python">Python</span>
+            <span class="label label-django">Django</span>
+            <span class="label label-fullstack">Full Stack</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date"><i class="far fa-calendar"></i> 2025</span>
+          </div>
         </div>
-        <!-- Project 4 - News Portal -->
-        <div class="project-card">
-          <h3>News Portal</h3>
-          <p>Real-time news aggregation web app fetching latest headlines from various sources with category filtering.</p>
-          <div class="project-tech"><span class="tech">Python</span><span class="tech">Django</span><span class="tech">API</span></div>
-          <a href="https://github.com/ayushgiri5429/News_Portal" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+
+        <!-- Project 4 -->
+        <div class="project-card reveal-up" data-labels="python,django,fullstack">
+          <div class="project-card-header">
+            <div class="project-icon"><i class="fas fa-users"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/ayushgiri5429/Student-Record-System" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Student Record System</h3>
+          <p class="project-desc">A student management system built with Django for tracking student records, grades, attendance, and generating reports.</p>
+          <div class="project-labels">
+            <span class="label label-python">Python</span>
+            <span class="label label-django">Django</span>
+            <span class="label label-fullstack">Full Stack</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date"><i class="far fa-calendar"></i> 2025</span>
+          </div>
         </div>
-        <!-- Project 5 - Python Tic Tac Toe -->
-        <div class="project-card">
-          <h3>Python Tic Tac Toe</h3>
-          <p>Classic Tic Tac Toe game with AI opponent and modern GUI interface built with Python and Tkinter.</p>
-          <div class="project-tech"><span class="tech">Python</span><span class="tech">Tkinter</span><span class="tech">OOP</span></div>
-          <a href="https://github.com/ayushgiri5429/python-tic-tac-toe" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+
+        <!-- Project 5 -->
+        <div class="project-card reveal-up" data-labels="python,django,fullstack,api">
+          <div class="project-card-header">
+            <div class="project-icon"><i class="fas fa-check-square"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/ayushgiri5429/Todo_Django_Project" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Todo App</h3>
+          <p class="project-desc">A feature-rich task management app with CRUD operations, task prioritization, due dates, and status tracking with a clean UI.</p>
+          <div class="project-labels">
+            <span class="label label-python">Python</span>
+            <span class="label label-django">Django</span>
+            <span class="label label-fullstack">Full Stack</span>
+            <span class="label label-api">API</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date"><i class="far fa-calendar"></i> 2025</span>
+          </div>
         </div>
-        <!-- Project 6 - Portfolio Website -->
-        <div class="project-card">
-          <h3>Portfolio 2025</h3>
-          <p>Modern responsive portfolio website with dark mode, smooth animations, and glassmorphism design.</p>
-          <div class="project-tech"><span class="tech">HTML5</span><span class="tech">CSS3</span><span class="tech">JavaScript</span></div>
-          <a href="https://github.com/ayushgiri5429/ayushgiri5429.github.io" class="github-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+
+        <!-- Project 6 -->
+        <div class="project-card reveal-up" data-labels="python,django,fullstack">
+          <div class="project-card-header">
+            <div class="project-icon"><i class="fas fa-calculator"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/ayushgiri5429/Simple_Calculator" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Simple Calculator</h3>
+          <p class="project-desc">A clean calculator web app built with Django, supporting basic arithmetic, history of calculations, and a responsive design.</p>
+          <div class="project-labels">
+            <span class="label label-python">Python</span>
+            <span class="label label-django">Django</span>
+            <span class="label label-fullstack">Full Stack</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date"><i class="far fa-calendar"></i> 2025</span>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-card reveal-up" data-labels="python">
+          <div class="project-card-header">
+            <div class="project-icon"><i class="fas fa-spider"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/ayushgiri5429/Scrapper_Python_Project" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Web Scraper</h3>
+          <p class="project-desc">A Python-based web scraping tool for automated data extraction, parsing, and processing from websites with configurable targets.</p>
+          <div class="project-labels">
+            <span class="label label-python">Python</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date"><i class="far fa-calendar"></i> 2025</span>
+          </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="project-card reveal-up" data-labels="python">
+          <div class="project-card-header">
+            <div class="project-icon"><i class="fas fa-gamepad"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/ayushgiri5429/python-tic-tac-toe" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Tic Tac Toe</h3>
+          <p class="project-desc">A classic Tic Tac Toe game implemented in Python with an AI opponent, score tracking, and a terminal-based interactive interface.</p>
+          <div class="project-labels">
+            <span class="label label-python">Python</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date"><i class="far fa-calendar"></i> 2025</span>
+          </div>
+        </div>
+
+        <!-- Project 9 -->
+        <div class="project-card reveal-up" data-labels="javascript,frontend">
+          <div class="project-card-header">
+            <div class="project-icon"><i class="fas fa-globe"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/ayushgiri5429/Demo_Website" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Demo Website</h3>
+          <p class="project-desc">A modern demo website showcasing frontend skills with responsive design, animations, and interactive UI components.</p>
+          <div class="project-labels">
+            <span class="label label-javascript">JavaScript</span>
+            <span class="label label-frontend">Frontend</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date"><i class="far fa-calendar"></i> 2026</span>
+          </div>
+        </div>
+
+        <!-- Project 10 -->
+        <div class="project-card reveal-up" data-labels="javascript,frontend">
+          <div class="project-card-header">
+            <div class="project-icon"><i class="fas fa-om"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/ayushgiri5429/Yagya_Website" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Yagya Website</h3>
+          <p class="project-desc">Official website of Yagyaraj featuring a clean, professional layout with smooth scrolling, gallery, and contact forms.</p>
+          <div class="project-labels">
+            <span class="label label-javascript">JavaScript</span>
+            <span class="label label-frontend">Frontend</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-date"><i class="far fa-calendar"></i> 2026</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Experience / Education Section -->
+  <!-- ============ EXPERIENCE / TIMELINE ============ -->
   <section id="experience">
     <div class="container">
-      <h2>Education & Training</h2>
-      <div class="exp-edu">
-        <div class="exp-item">
-          <h3><i class="fas fa-graduation-cap"></i> Bachelor of Technology - IT Engineering</h3>
-          <p>Cosmos College of Managemnet & Technology, Kathmandu | 2021 – 2025</p>
-          <p style="color: var(--text-soft);">Relevant coursework: Data Structures, Web Development, DBMS, Cloud Computing.</p>
+      <div class="section-header reveal-up">
+        <span class="section-tag">&lt;experience&gt;</span>
+        <h2 class="section-title">Experience &amp; Education</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-labels">
+              <span class="label label-primary">Education</span>
+            </div>
+            <h3>IT Engineering Graduate</h3>
+            <span class="timeline-date"><i class="far fa-calendar-alt"></i> 2020 - 2024</span>
+            <p>Completed Bachelor's degree in Information Technology Engineering. Built strong foundations in programming, databases, networking, and software engineering principles.</p>
+          </div>
         </div>
-        <div class="exp-item">
-          <h3><i class="fas fa-code"></i> Professional Django Training</h3>
-          <p>Python/Django Masterclass – Zero to Hero (Broadway Infosys)</p>
-          <p style="color: var(--text-soft);">Completed intensive 3-month training: built 5+ full-stack projects, version control, deployment.</p>
+        <div class="timeline-item reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-labels">
+              <span class="label label-secondary">Self-Learning</span>
+            </div>
+            <h3>Full Stack Web Development</h3>
+            <span class="timeline-date"><i class="far fa-calendar-alt"></i> 2023 - Present</span>
+            <p>Deepened expertise in Python, Django, JavaScript, and modern web technologies. Built multiple real-world projects including news portals, blogs, and management systems.</p>
+          </div>
         </div>
-        <div class="exp-item">
-          <h3><i class="fas fa-laptop-code"></i> Full Stack Developer Intern</h3>
-          <p>Grepbit Tech Consulting Pvt. Ltd | 2025 (3 months)</p>
-          <p style="color: var(--text-soft);">Collaborated on Django REST APIs, frontend integration, and database optimization. Achieved 20% performance improvement.</p>
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-labels">
+              <span class="label label-accent">Open Source</span>
+            </div>
+            <h3>Open Source Contributions</h3>
+            <span class="timeline-date"><i class="far fa-calendar-alt"></i> 2024 - Present</span>
+            <p>Actively contributing to open-source projects on GitHub, collaborating with developers worldwide, and maintaining personal repositories with well-documented code.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-labels">
+              <span class="label label-success">Current</span>
+            </div>
+            <h3>Seeking Opportunities</h3>
+            <span class="timeline-date"><i class="far fa-calendar-alt"></i> Present</span>
+            <p>Actively seeking full-stack developer positions to contribute to innovative teams and grow as a software professional. Open to remote and on-site opportunities.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact + References Combined Layout -->
+  <!-- ============ CONTACT SECTION ============ -->
   <section id="contact">
     <div class="container">
-      <h2>Get In Touch</h2>
-      <div class="contact-flex">
-        <div class="contact-info">
-          <h3><i class="fas fa-address-card"></i> Let's connect</h3>
-          <div class="contact-item"><i class="fas fa-envelope"></i> <span>pyayushgiri@gmail.com</span></div>
-          <div class="contact-item"><i class="fas fa-phone-alt"></i> <span>+977 9862475429</span></div>
-          <div class="contact-item"><i class="fab fa-github"></i> <span><a href="https://github.com/ayushgiri5429" target="_blank">github.com/ayushgiri5429</a></span></div>
-          <div class="contact-item"><i class="fab fa-linkedin"></i> <span><a href="https://www.linkedin.com/in/ayushgiri1/" target="_blank">linkedin.com/in/ayushgiri1/</a></span></div>
+      <div class="section-header reveal-up">
+        <span class="section-tag">&lt;contact&gt;</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Have a project in mind or want to collaborate? I'd love to hear from you!</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <div class="contact-card">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h4>Email</h4>
+                <a href="mailto:ayushgiri5429@gmail.com">ayushgiri5429@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h4>Location</h4>
+                <p>Nepal</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-globe"></i></div>
+              <div>
+                <h4>Website</h4>
+                <a href="https://giriayush.com.np" target="_blank">giriayush.com.np</a>
+              </div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/ayushgiri5429" target="_blank" class="social-link" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/ayushgiri5429" target="_blank" class="social-link" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:ayushgiri5429@gmail.com" class="social-link" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
         </div>
-        <div class="references">
-          <h3><i class="fas fa-user-check"></i> References</h3>
-          <div class="ref-card">
-            <p><strong>Mr. Ramesh Pradhan</strong><br>Senior Python/Django Instructor, Broadway Infosys</p>
-          </div>
-          <div class="ref-card">
-            <p><strong>Mr. Keshav Prasad Mainali</strong><br>CTO - Grepbit Tech Consulting Pvt. Ltd.</p>
-          </div>
-          <div class="ref-card">
-            <p><em>📄 Available upon request for professional references</em></p>
-          </div>
+        <div class="contact-form-wrapper reveal-right">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" id="name" placeholder=" " required>
+              <label for="name">Your Name</label>
+              <span class="form-highlight"></span>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" placeholder=" " required>
+              <label for="email">Your Email</label>
+              <span class="form-highlight"></span>
+            </div>
+            <div class="form-group">
+              <input type="text" id="subject" placeholder=" " required>
+              <label for="subject">Subject</label>
+              <span class="form-highlight"></span>
+            </div>
+            <div class="form-group">
+              <textarea id="message" rows="5" placeholder=" " required></textarea>
+              <label for="message">Your Message</label>
+              <span class="form-highlight"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-glow btn-full">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
         </div>
       </div>
     </div>
   </section>
-
-  <footer>
-    <p>© 2026 Ayush Giri. All rights reserved.</p>
-  </footer>
 </main>
 
-<script src="script.js"></script>
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="logo">
+          <span class="logo-bracket">&lt;</span>Ayush<span class="logo-dot">.</span>dev<span class="logo-bracket">/&gt;</span>
+        </span>
+        <p>Building modern web experiences with passion and precision.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/ayushgiri5429" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/ayushgiri5429" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:ayushgiri5429@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Ayush Giri. All rights reserved. Built with <span class="heart">&hearts;</span> and JavaScript</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script src="script.js?v=3"></script>
 </body>
 </html>
